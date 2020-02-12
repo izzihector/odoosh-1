@@ -823,7 +823,7 @@
             </div>
         </xpath>
     </template>
-    <!-- <template id="website_sale_comparison.product_attributes_body" inherit_id="website_sale.product" customize_show="False" active="False" name="Product attributes table"> -->
+    <template id="website_sale_comparison.product_attributes_body" inherit_id="website_sale.product" customize_show="False" active="False" name="Product attributes table">
         <xpath expr="//hr[@id='hr_product_attributes_simple']" position="replace"/>
         <xpath expr="//p[@id='product_attributes_simple']" position="replace"/>
         <xpath expr="//div[@id='product_full_description']" position="after">
