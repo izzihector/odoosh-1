@@ -1,4 +1,4 @@
-odoo.define('alan_customize.ProductConfiguratorMixin2', function (require) {
+odoo.define('alan_customize.ProductConfiguratorMixin', function (require) {
     'use strict';
     var sAnimations = require('website.content.snippets.animation');
     var core = require('web.core');

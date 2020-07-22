@@ -1,4 +1,4 @@
-odoo.define('alan_customize.ProductConfiguratorMixin', function (require) {
+odoo.define('alan_customize.ProductConfiguratorMixes', function (require) {
 'use strict';
 
 var concurrency = require('web.concurrency');
@@ -7,7 +7,7 @@ var utils = require('web.utils');
 var ajax = require('web.ajax');
 var _t = core._t;
 
-var ProductConfiguratorMixin = {
+var ProductConfiguratorMixes = {
     events: {
         'change .css_attribute_color input': '_onChangeColorAttribute',
         'change .main_product:not(.in_cart) input.js_quantity': 'onChangeAddQuantity',
@@ -75,7 +75,7 @@ var ProductConfiguratorMixin = {
         var productTemplateId = parseInt($parent.find('.product_template_id').val());
 
         self._checkExclusions($parent, combination);
-
+        console.log("combination: " + combination)
         return ajax.jsonRpc(this._getUri('/product_configurator/get_combination_info'), 'call', {
             'product_template_id': productTemplateId,
             'product_id': this._getProductId($parent),
@@ -612,6 +612,6 @@ var ProductConfiguratorMixin = {
     }
 };
 
-return ProductConfiguratorMixin;
+return ProductConfiguratorMixes;
 
 });
