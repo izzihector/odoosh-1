@@ -1,11 +1,11 @@
-odoo.define('alan_customize.ProductConfiguratorMixin', function (require) {
+odoo.define('alan_customize.ProductConfiguratorMixin2', function (require) {
     'use strict';
     var sAnimations = require('website.content.snippets.animation');
     var core = require('web.core');
     var QWeb = core.qweb;
     var ajax = require('web.ajax');
     var ProductConfiguratorMixin = require('sale.ProductConfiguratorMixin');
-    
+
     sAnimations.registry.WebsiteSale.include({
         _onChangeCombination: function (){
             this._super.apply(this, arguments);
@@ -65,7 +65,7 @@ odoo.define('alan_customize.ProductConfiguratorMixin', function (require) {
                                 $('.product_detail_img').parent().parent().attr('src', this.src);
                             });
                         }
-                        
+
                     }
                 });
             }
@@ -79,7 +79,7 @@ odoo.define('alan_customize.ProductConfiguratorMixin', function (require) {
                 $('.my_wish_quantity').text(this.wishlistProductIDs.length);
             }
         },
-    });  
+    });
 
     return sAnimations.registry.WebsiteSale;
 });

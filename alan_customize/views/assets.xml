@@ -36,4 +36,9 @@
             <script type="text/javascript" src="/alan_customize/static/src/js/product_configure_mixin.js"></script>
         </xpath>
     </template>
+    <template id="assent_front" inherit_id="sale.assets_backend_inherit_sale">
+        <xpath expr="script[last()]" position="after">
+          <script type="text/javascript" src="/alan_customize/static/src/js/product_variant_switches.js"></script>
+        </xpath>
+    </template>
 </odoo>
