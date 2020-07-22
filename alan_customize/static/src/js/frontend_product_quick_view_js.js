@@ -45,12 +45,16 @@ odoo.define('alan_customize.frontend_product_quick_view_js', function(require) {
                     var temp_names = [];
                     $("#my_quick_view_modal input.js_variant_change,#my_quick_view_modal select.js_variant_change").each(function() {
                         temp_names.push($(this).attr('name'));
+                        console.log("temp_names: " + temp_names)
                     });
                     temp_names = temp_names.filter(function(value, index, self) {
                         return self.indexOf(value) === index;
                     });
+                    console.log("filtered temp_names: " + temp_names)
                     attrib_names = temp_names.slice(0);
+                    console.log("attrib_names: " + attrib_names)
                     curr_variant_id = $("#my_quick_view_modal input[name='product_id']").val();
+                    console.log("curr_variant_id: " + curr_variant_id)
                     qv_button.removeClass("disabled");
                     self.$el.modal();
                 });
