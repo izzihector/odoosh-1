@@ -9,7 +9,11 @@ odoo.define('alan_customize.ProductConfiguratorMixin', function (require) {
     sAnimations.registry.WebsiteSale.include({
         _onChangeCombination: function (){
             this._super.apply(this, arguments);
+            console.log("_onChangeCombination $price: " + $price)
+            console.log("_onChangeCombination $default_price: " + $default_price)
+            console.log("_onChangeCombination $optional_price: " + $optional_price)
             this._onChangeCombinationImage.apply(this, arguments);
+            this._onChangeCombinationAvailability.apply(this, arguments);
         },
         _onChangeCombinationImage: function (ev, $parent, combination) {
             var isMainProduct = combination.product_id &&
@@ -69,6 +73,10 @@ odoo.define('alan_customize.ProductConfiguratorMixin', function (require) {
                     }
                 });
             }
+        },
+
+        _onChangeCombinationAvailability: function (ev, $parent, combination) {
+
         },
     });
 
