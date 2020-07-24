@@ -15,7 +15,7 @@ odoo.define('alan_customize.ProductConfiguratorMixin', function (require) {
             var isMainProduct = combination.product_id &&
                 ($parent.is('.js_main_product') || $parent.is('.main_product')) &&
                 combination.product_id === parseInt($parent.find('.product_id').val());
-
+                console.log(combination)
             if (!this.isWebsite || !isMainProduct){
                 return;
             }
