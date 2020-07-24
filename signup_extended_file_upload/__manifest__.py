@@ -10,7 +10,7 @@
     'sequence': 1,
     'author': 'nathanqj',
     'website': 'http://captivea.us',
-    'depends': ['auth_signup'],
+    'depends': ['website_form', 'auth_signup'],
     'data': [
         'views/auth_signup_extend_views.xml',
         'views/res_partner_view.xml',
