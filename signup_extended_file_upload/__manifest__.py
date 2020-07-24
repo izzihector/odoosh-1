@@ -1,6 +1,6 @@
 {
     'name': 'Signup Extended Fields',
-    'version': '12.0.1.0.0',
+    'version': '12.0.1.0.2',
     'category': 'Website',
     'summary': 'Auth signup form with extra fields',
     'description': """
