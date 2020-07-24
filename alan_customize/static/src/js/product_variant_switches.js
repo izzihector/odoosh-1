@@ -199,6 +199,7 @@ var ProductConfiguratorMixes = {
         $container.find('input.js_variant_change:checked, select.js_variant_change').each(function () {
             self.handleCustomValues($(this));
         });
+        console.log("try here")
     },
 
     /**
