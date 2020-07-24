@@ -8,6 +8,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='vat']" position="after">
                     <field name="account_type"/>
+                    <field name="business_type"/>
                     <field name="filename" invisible="0"/>
                     <field name="tax_certificate" widget="binary" filename="filename"/>
                     <field name="comments"/>

@@ -72,19 +72,31 @@
               </h2>
 
 
-              <div class="form-group field-account_type">
+              <div class="form-group field-account_type d-none">
                   <label for="account_type" class="control-label">Account Required</label>
-                  <select name="account_type" class="form-control" required="required" t-att-readonly="'readonly' if only_passwords else None"
-                    t-att-autofocus="'autofocus' if login and not only_passwords else None">
-                      <option value="">Please Select an Account Type</option>
-                      <option value="hospitality">
-                          Hospitality - Commercial Design
-                      </option>
-                      <option value="stocking_dealer">
-                          Stocking Dealer - $2,500 Opening Order - ($2,500 Yearly) - Save 30% over wholesale
-                      </option>
+                  <select name="account_type" class="form-control" required="required">
                       <option value="wholesale_account">
-                          Wholesale Account - No Minium Order - (No Commitment)
+                        Wholesale Account - No Minium Order - (No Commitment)
+                      </option>
+                  </select>
+              </div>
+
+              <div class="form-group field-account_type">
+                  <label for="business_type" class="control-label">Account Required</label>
+                  <select name="business_type" class="form-control" required="required" t-att-readonly="'readonly' if only_passwords else None"
+                    t-att-autofocus="'autofocus' if login and not only_passwords else None">
+                      <option value="">Please Select a Trade Business Type</option>
+                      <option value="retail_furniture_store">
+                          Retail Furniture Store
+                      </option>
+                      <option value="interior_design_pro">
+                          Interior Design Professionals
+                      </option>
+                      <option value="architects_builders">
+                          Architects / Builders
+                      </option>
+                      <option value="e_commerce_store">
+                        E-commerce Store: Furniture / Interior Design
                       </option>
                   </select>
               </div>
@@ -93,11 +105,6 @@
                    <label for="company_name" class="control-label">Company</label>
                    <input type="text" name="company_name" t-att-value="company_name" id="company_name" class="form-control" required="required" t-att-readonly="'readonly' if only_passwords else None"
                  t-att-autofocus="'autofocus' if login and not only_passwords else None" />
-               </div>
-               <div class="form-group field-vat">
-                    <label for="vat" class="control-label">Tax ID</label>
-                    <input type="text" name="vat" t-att-value="vat" id="vat" class="form-control" required="required" t-att-readonly="'readonly' if only_passwords else None"
-                  t-att-autofocus="'autofocus' if login and not only_passwords else None" />
                </div>
                <div class="form-group field-phone">
                    <label for="phone" class="control-label">Phone</label>
@@ -153,6 +160,11 @@
                    <input type="text" name="zip" id="zip" class="form-control" required="required" t-att-readonly="'readonly' if only_passwords else None"
                  t-att-autofocus="'autofocus' if login and not only_passwords else None" />
                </div>
+               <div class="form-group field-vat">
+                    <label for="vat" class="control-label">Tax ID</label>
+                    <input type="text" name="vat" t-att-value="vat" id="vat" class="form-control" required="required" t-att-readonly="'readonly' if only_passwords else None"
+                  t-att-autofocus="'autofocus' if login and not only_passwords else None" />
+               </div>               
                <div class="form-group">
                     <label for="tax_certificate" class="control-label">Tax Certificate</label>
                     <input type="file" name="tax_certificate" id="tax_certificate" class="form-control"/>
