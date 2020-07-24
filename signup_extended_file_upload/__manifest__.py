@@ -14,6 +14,7 @@
     'data': [
         'views/auth_signup_extend_views.xml',
         'views/res_partner_view.xml',
+        'data/data.xml',
     ],
     'qweb': [],
     'css': [],
