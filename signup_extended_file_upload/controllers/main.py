@@ -14,7 +14,24 @@ _logger = logging.getLogger(__name__)
 
 class AuthSignupHomeCustom(AuthSignupHome):
 
-    def do_signup(self, qcontext):
+    # def do_signup(self, qcontext):
+    #     """ Shared helper that creates a res.partner out of a token """
+    #     values = {key: qcontext.get(key) for key in ('login', 'name', 'password', 'phone', 'street', 'street2',
+    #                 'zip', 'city', 'state_id', 'country_id', 'vat', 'company_name', 'account_type', 'business_type', 'website', 'comments', 'filename')}
+    #     if qcontext.get('tax_certificate'):
+    #         values.update({'tax_certificate': base64.encodestring(qcontext.get('tax_certificate').read()), 'filename': qcontext.get('tax_certificate').filename})
+    #     if not values:
+    #         raise UserError(_("The form was not properly filled in."))
+    #     if values.get('password') != qcontext.get('confirm_password'):
+    #         raise UserError(_("Passwords do not match; please retype them."))
+    #     supported_langs = [lang['code'] for lang in request.env[
+    #         'res.lang'].sudo().search_read([], ['code'])]
+    #     if request.lang in supported_langs:
+    #         values['lang'] = request.lang
+    #     self._signup_with_values(qcontext.get('token'), values)
+    #     request.env.cr.commit()
+
+    def custom_signup(self, qcontext):
         """ Shared helper that creates a res.partner out of a token """
         values = {key: qcontext.get(key) for key in ('login', 'name', 'password', 'phone', 'street', 'street2',
                     'zip', 'city', 'state_id', 'country_id', 'vat', 'company_name', 'account_type', 'business_type', 'website', 'comments', 'filename')}
@@ -29,7 +46,10 @@ class AuthSignupHomeCustom(AuthSignupHome):
         if request.lang in supported_langs:
             values['lang'] = request.lang
         # self._signup_with_values(qcontext.get('token'), values)
+        request.env['res.users'].sudo().signup(values, qcontext.get('token')
+        
         request.env.cr.commit()
+
 
     @http.route('/web/signup', type='http', auth='public', website=True,
                 sitemap=False)
@@ -44,7 +64,7 @@ class AuthSignupHomeCustom(AuthSignupHome):
         if 'error' not in qcontext and request.httprequest.method == 'POST':
             try:
                 # connect the user to the website
-                self.do_signup(qcontext)
+                self.custom_signup(qcontext)
                 # Send an account creation confirmation email
                 # if qcontext.get('token'):
                 #     user_sudo = request.env['res.users'].sudo().search(
