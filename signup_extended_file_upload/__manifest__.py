@@ -1,6 +1,6 @@
 {
     'name': 'Signup Extended Fields',
-    'version': '12.0.1.0.0',
+    'version': '12.0.1.0.2',
     'category': 'Website',
     'summary': 'Auth signup form with extra fields',
     'description': """
@@ -10,10 +10,11 @@
     'sequence': 1,
     'author': 'nathanqj',
     'website': 'http://captivea.us',
-    'depends': ['auth_signup'],
+    'depends': ['website_form', 'auth_signup'],
     'data': [
         'views/auth_signup_extend_views.xml',
         'views/res_partner_view.xml',
+        'data/data.xml',
     ],
     'qweb': [],
     'css': [],
