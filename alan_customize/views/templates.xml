@@ -281,7 +281,7 @@
                 <li id="my_wish" class="nav-item" t-att-style="not wishcount and 'display:none;'">
                     <a href="/shop/wishlist" class="nav-link">
                         <i class="fa fa-heart"/>
-            Wishlist
+            Wishlist 
                         <sup t-attf-class="my_wish_quantity o_animate_blink badge badge-primary">
                             <t t-esc='wishcount'/>
                         </sup>
@@ -545,7 +545,7 @@
             <div class="dropdown ml-2 dropdown_sorty_by">
                 <a role="button" href="#" class="dropdown-toggle btn btn-secondary" data-toggle="dropdown">
                     <t t-if='len(website_sale_sortable_current)'>
-                        <span>Sorting by :
+                        <span>Sorting by : 
                             <t t-raw='website_sale_sortable_current[0][0]'/>
                         </span>
                     </t>
@@ -669,7 +669,7 @@
                 <div class="dropdown btn-group dropdown_sorty_by">
                     <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" t-att-data-sort_key_value="website_sale_sortable_current[0][1] if len(website_sale_sortable_current) else ''">
                         <t t-if='len(website_sale_sortable_current)'>
-                            <span>Sorting by :
+                            <span>Sorting by : 
                                 <t t-raw='website_sale_sortable_current[0][0]'/>
                             </span>
                         </t>
@@ -793,7 +793,7 @@
             <div role="tabpanel" class="tab-pane" id="attribute_t">
                 <section class="container" id="product_full_spec">
                     <t t-if='len(atts)'>
-                        <h3 class="text-center mb32">Specifications for
+                        <h3 class="text-center mb32">Specifications for 
                             <t t-esc="product.name"/>
                         </h3>
                         <div class="row">
@@ -830,7 +830,7 @@
             <section class="container" id="product_full_spec">
                 <t t-set="atts" t-value="product.get_variant_groups()"/>
                 <t t-if='len(atts)'>
-                    <h3 class="text-center mb32">Specifications for
+                    <h3 class="text-center mb32">Specifications for 
                         <t t-esc="product.name"/>
                     </h3>
                     <div class="row">

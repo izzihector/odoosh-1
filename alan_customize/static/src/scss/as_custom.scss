@@ -36,7 +36,7 @@ footer .o_footer_copyright {
 				+ span:before {
 					background: $as-dark;
 					opacity: 0.6;
-				}
+				}   
 			}
 		}
 		&.active {
@@ -105,7 +105,7 @@ footer .o_footer_copyright {
 	#products_grid {
 		flex: 0 0 100%;
 		max-width: 100%;
-	}
+	}	
 }
 
 #products_grid_before {
@@ -279,7 +279,6 @@ footer .o_footer_copyright {
 			    }
 	    	}
 	    }
-
 	}
 
 	/*collaps*/
@@ -402,7 +401,7 @@ footer .o_footer_copyright {
 		padding: 2px 0;
 		margin-top: 2px;
 		display: inline-block;
-		border-radius: 30px;
+		border-radius: 30px;    
 		color: #d21616;
 		cursor: pointer;
 		top: 0;
@@ -475,7 +474,7 @@ footer .o_footer_copyright {
 	position: relative;
 	&:not(.products_pager_top){
 		@media(min-width: 991px){
-			padding-left: 25%;
+			padding-left: 25%;	
 		}
 	}
 	&.products_pager_top {
@@ -670,7 +669,6 @@ footer .o_footer_copyright {
 				width: 100%;
 				text-align: right;
 				.control-label{
-
 				}
 				.form-control{
 				}
@@ -704,7 +702,7 @@ footer .o_footer_copyright {
 .oe_login_form,
 .oe_signup_form,
 .oe_reset_password_form {
-	max-width: 640px;
+	  max-width: 640px;
     position: relative;
     margin: 50px auto;
     border: 1px solid #ddd;
@@ -739,9 +737,9 @@ footer .o_footer_copyright {
 }
 
 
-#oe_manipulators .dropdown-menu li.snippet-option-o_animate li.active > a::after,
-#oe_manipulators .dropdown-menu li.snippet-option-o_animate_duration li.active > a::after,
-#oe_manipulators .dropdown-menu li.snippet-option-o_animate_delay li.active > a::after,
+#oe_manipulators .dropdown-menu li.snippet-option-o_animate li.active > a::after, 
+#oe_manipulators .dropdown-menu li.snippet-option-o_animate_duration li.active > a::after, 
+#oe_manipulators .dropdown-menu li.snippet-option-o_animate_delay li.active > a::after, 
 #oe_manipulators .dropdown-menu li.snippet-option-o_animate_options li.active > a::after {position: absolute; right: 6px; top: 7px;}
 .oe_menu_editor .input-group-btn .js_edit_menu,
 .oe_menu_editor .input-group-btn .js_delete_menu {font-size: 14px; line-height: 1.42857143;}
@@ -803,10 +801,10 @@ footer .o_footer_copyright {
 				&.td-product_name {
 					strong {
 						font-weight:400;
-					}
+					}	
 				}
 			}
-
+			
 		}
 		tbody {
 			tr {
@@ -853,7 +851,7 @@ footer .o_footer_copyright {
 				}
 			}
 		}
-	}
+	}	
 }
 
 

@@ -34,7 +34,6 @@
             <script type="text/javascript" src="/alan_customize/static/src/js/jquery.countdown.min.js"></script>
             <script type="text/javascript" src="/alan_customize/static/src/js/custom.js"></script>
             <script type="text/javascript" src="/alan_customize/static/src/js/product_configure_mixin.js"></script>
-            <script type="text/javascript" src="/alan_customize/static/src/js/product_variant_switches.js"></script>
         </xpath>
     </template>
 </odoo>

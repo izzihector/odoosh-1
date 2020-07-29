@@ -6,20 +6,18 @@ odoo.define('alan_customize.ProductConfiguratorMixin', function (require) {
     var ajax = require('web.ajax');
     var ProductConfiguratorMixin = require('sale.ProductConfiguratorMixin');
 
+    
     sAnimations.registry.WebsiteSale.include({
         _onChangeCombination: function (){
             this._super.apply(this, arguments);
-            console.log("_onChangeCombination $price: " + $price)
-            console.log("_onChangeCombination $default_price: " + $default_price)
-            console.log("_onChangeCombination $optional_price: " + $optional_price)
             this._onChangeCombinationImage.apply(this, arguments);
-            this._onChangeCombinationAvailability.apply(this, arguments);
         },
         _onChangeCombinationImage: function (ev, $parent, combination) {
             var isMainProduct = combination.product_id &&
                 ($parent.is('.js_main_product') || $parent.is('.main_product')) &&
                 combination.product_id === parseInt($parent.find('.product_id').val());
-                console.log(combination)
+
+
             if (!this.isWebsite || !isMainProduct){
                 return;
             }
@@ -75,12 +73,6 @@ odoo.define('alan_customize.ProductConfiguratorMixin', function (require) {
             }
         },
 
-        _onChangeCombinationAvailability: function (ev, $parent, combination) {
-          $parent
-              .find('.js_raw_price')
-              .first()
-              .html(combination.price);
-        },
     });
 
     sAnimations.registry.ProductWishlist.include({
@@ -90,7 +82,7 @@ odoo.define('alan_customize.ProductConfiguratorMixin', function (require) {
                 $('.my_wish_quantity').text(this.wishlistProductIDs.length);
             }
         },
-    });
+    });  
 
     return sAnimations.registry.WebsiteSale;
 });
