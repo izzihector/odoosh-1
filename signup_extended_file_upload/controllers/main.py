@@ -44,7 +44,7 @@ class AuthSignupHomeCustom(AuthSignupHome):
         if 'error' not in qcontext and request.httprequest.method == 'POST':
             try:
                 # connect the user to the website
-                # self.do_signup(qcontext)
+                self.do_signup(qcontext)
                 # Send an account creation confirmation email
                 # if qcontext.get('token'):
                 #     user_sudo = request.env['res.users'].sudo().search(
@@ -59,7 +59,9 @@ class AuthSignupHomeCustom(AuthSignupHome):
                 #                 'auth_login': user_sudo.email
                 #             }),
                 #         ).send_mail(user_sudo.id, force_send=True)
-                return super(AuthSignupHome, self).web_login(*args, **kw)
+                # return super(AuthSignupHome, self).web_login(*args, **kw)
+                return http.redirect_with_hash(request.params.get('redirect'))
+
             except UserError as e:
                 qcontext['error'] = e.name or e.value
             except (SignupError, AssertionError) as e:
