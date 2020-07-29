@@ -13,7 +13,7 @@
                   <p class="alert alert-danger" t-if="error" role="alert">
                       <t t-esc="error"/>
                   </p>
-                  <input type="hidden" name="redirect" t-att-value="redirect"/>
+                  <input type="hidden" name="redirect" value="/thank-you"/>
                   <input type="hidden" name="token" t-att-value="token"/>
                   <div class="text-center oe_login_buttons pt-3">
                       <button type="submit" class="btn btn-primary btn-block"> Sign up</button>
