@@ -279,7 +279,6 @@ footer .o_footer_copyright {
 			    }
 	    	}
 	    }
-	    
 	}
 
 	/*collaps*/
@@ -670,7 +669,6 @@ footer .o_footer_copyright {
 				width: 100%;
 				text-align: right;
 				.control-label{
-				
 				}
 				.form-control{
 				}
@@ -701,10 +699,10 @@ footer .o_footer_copyright {
 	padding: 20px;
 	min-height: 100%;
 }
-.oe_login_form, 
-.oe_signup_form, 
+.oe_login_form,
+.oe_signup_form,
 .oe_reset_password_form {
-	max-width: 340px;
+	  max-width: 640px;
     position: relative;
     margin: 50px auto;
     border: 1px solid #ddd;

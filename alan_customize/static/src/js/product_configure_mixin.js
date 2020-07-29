@@ -5,6 +5,7 @@ odoo.define('alan_customize.ProductConfiguratorMixin', function (require) {
     var QWeb = core.qweb;
     var ajax = require('web.ajax');
     var ProductConfiguratorMixin = require('sale.ProductConfiguratorMixin');
+
     
     sAnimations.registry.WebsiteSale.include({
         _onChangeCombination: function (){
@@ -15,6 +16,7 @@ odoo.define('alan_customize.ProductConfiguratorMixin', function (require) {
             var isMainProduct = combination.product_id &&
                 ($parent.is('.js_main_product') || $parent.is('.main_product')) &&
                 combination.product_id === parseInt($parent.find('.product_id').val());
+
 
             if (!this.isWebsite || !isMainProduct){
                 return;
@@ -65,11 +67,12 @@ odoo.define('alan_customize.ProductConfiguratorMixin', function (require) {
                                 $('.product_detail_img').parent().parent().attr('src', this.src);
                             });
                         }
-                        
+
                     }
                 });
             }
         },
+
     });
 
     sAnimations.registry.ProductWishlist.include({
