@@ -113,7 +113,7 @@
                </div>
                <div class="form-group field-website">
                    <label for="website" class="control-label">Website</label>
-                   <input type="text" name="website" id="website" class="form-control" required="required" t-att-readonly="'readonly' if only_passwords else None"
+                   <input type="text" name="website" id="website" class="form-control" t-att-readonly="'readonly' if only_passwords else None"
                  t-att-autofocus="'autofocus' if login and not only_passwords else None" />
                </div>
                <div class="form-group field-street_name">
@@ -123,7 +123,7 @@
                </div>
                <div class="form-group field-street">
                    <label for="street2" class="control-label">Suite / Apt #</label>
-                   <input type="text" name="street2" t-att-value="street2" id="street2" class="form-control" required="required" t-att-readonly="'readonly' if only_passwords else None"
+                   <input type="text" name="street2" t-att-value="street2" id="street2" class="form-control" t-att-readonly="'readonly' if only_passwords else None"
                  t-att-autofocus="'autofocus' if login and not only_passwords else None" />
                </div>
                <div class="form-group field-city">
@@ -164,7 +164,7 @@
                     <label for="vat" class="control-label">Tax ID</label>
                     <input type="text" name="vat" t-att-value="vat" id="vat" class="form-control" required="required" t-att-readonly="'readonly' if only_passwords else None"
                   t-att-autofocus="'autofocus' if login and not only_passwords else None" />
-               </div>               
+               </div>
                <div class="form-group">
                     <label for="tax_certificate" class="control-label">Tax Certificate</label>
                     <input type="file" name="tax_certificate" id="tax_certificate" class="form-control"/>
@@ -172,7 +172,7 @@
 
                <div class="form-group field-comments">
                     <label for="comments" class="control-label">Comments</label>
-                    <input type="text" name="comments" t-att-value="comments" id="comments" class="form-control" required="required" t-att-readonly="'readonly' if only_passwords else None"
+                    <input type="text" name="comments" t-att-value="comments" id="comments" class="form-control" t-att-readonly="'readonly' if only_passwords else None"
                   t-att-autofocus="'autofocus' if login and not only_passwords else None" />
                 </div>
             </xpath>

@@ -76,7 +76,10 @@ odoo.define('alan_customize.ProductConfiguratorMixin', function (require) {
         },
 
         _onChangeCombinationAvailability: function (ev, $parent, combination) {
-
+          $parent
+              .find('.js_raw_price')
+              .first()
+              .html(combination.price);
         },
     });
 

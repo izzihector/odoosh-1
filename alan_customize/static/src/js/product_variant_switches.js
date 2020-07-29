@@ -422,11 +422,6 @@ var ProductConfiguratorMixes = {
         var $default_price = $parent.find(".oe_default_price:first .oe_currency_value");
         var $optional_price = $parent.find(".oe_optional:first .oe_currency_value");
 
-        console.log("_onChangeCombination $price: " + $price)
-        console.log("_onChangeCombination $default_price: " + $default_price)
-        console.log("_onChangeCombination $optional_price: " + $optional_price)
-
-
         var isCombinationPossible = this.isSelectedVariantAllowed;
 
         if (combination.is_combination_possible !== undefined) {
@@ -436,9 +431,7 @@ var ProductConfiguratorMixes = {
         this._toggleDisable($parent, isCombinationPossible);
 
         $price.html(self._priceToStr(combination.price));
-        console.log("combination.price: " + combination.price)
         $default_price.html(self._priceToStr(combination.list_price));
-        console.log("combination.list_price: " + combination.list_price)
         // compatibility_check to remove in master
         // needed for fix in 12.0 in the case of git pull and no server restart
         var compatibility_check = combination.list_price - combination.price >= 0.01;
