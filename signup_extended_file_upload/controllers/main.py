@@ -43,21 +43,22 @@ class AuthSignupHomeCustom(AuthSignupHome):
 
         if 'error' not in qcontext and request.httprequest.method == 'POST':
             try:
-                self.do_signup(qcontext)
+                # connect the user to the website
+                # self.do_signup(qcontext)
                 # Send an account creation confirmation email
-                if qcontext.get('token'):
-                    user_sudo = request.env['res.users'].sudo().search(
-                        [('login', '=', qcontext.get('login'))])
-                    template = request.env.ref(
-                        'auth_signup.mail_template_user_signup_account_created',
-                        raise_if_not_found=False)
-                    if user_sudo and template:
-                        template.sudo().with_context(
-                            lang=user_sudo.lang,
-                            auth_login=werkzeug.url_encode({
-                                'auth_login': user_sudo.email
-                            }),
-                        ).send_mail(user_sudo.id, force_send=True)
+                # if qcontext.get('token'):
+                #     user_sudo = request.env['res.users'].sudo().search(
+                #         [('login', '=', qcontext.get('login'))])
+                #     template = request.env.ref(
+                #         'auth_signup.mail_template_user_signup_account_created',
+                #         raise_if_not_found=False)
+                #     if user_sudo and template:
+                #         template.sudo().with_context(
+                #             lang=user_sudo.lang,
+                #             auth_login=werkzeug.url_encode({
+                #                 'auth_login': user_sudo.email
+                #             }),
+                #         ).send_mail(user_sudo.id, force_send=True)
                 return super(AuthSignupHome, self).web_login(*args, **kw)
             except UserError as e:
                 qcontext['error'] = e.name or e.value
