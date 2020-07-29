@@ -28,7 +28,7 @@ class AuthSignupHomeCustom(AuthSignupHome):
             'res.lang'].sudo().search_read([], ['code'])]
         if request.lang in supported_langs:
             values['lang'] = request.lang
-        self._signup_with_values(qcontext.get('token'), values)
+        # self._signup_with_values(qcontext.get('token'), values)
         request.env.cr.commit()
 
     @http.route('/web/signup', type='http', auth='public', website=True,
