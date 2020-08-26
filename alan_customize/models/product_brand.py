@@ -39,7 +39,7 @@ class ProductTemplate(models.Model):
         help='Select a brand for this product'
     )
     def _get_combination_info(self, combination=False, product_id=False, add_qty=1, pricelist=False, parent_combination=False, only_template=False):
-        _logger.info('Launched!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n')
+        # _logger.info('Launched!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n')
         self.ensure_one()
         # get the name before the change of context to benefit from prefetch
         display_name = self.name
@@ -90,7 +90,7 @@ class ProductTemplate(models.Model):
                 filtered_false = True
         if filtered_combination:
             if display_name != False and filtered_combination != False and filtered_combination[0] != False and filtered_false == False:
-                _logger.info('___________________-Filtered: ' + str(filtered_combination.mapped('name')[0]) + " _____ " + str(filtered_combination[0]))
+                # _logger.info('___________________-Filtered: ' + str(filtered_combination.mapped('name')[0]) + " _____ " + str(filtered_combination[0]))
 
                 display_name = '%s (%s)' % (display_name, ', '.join(filtered_combination.mapped('name')))
             else:
