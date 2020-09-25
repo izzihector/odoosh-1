@@ -84,7 +84,7 @@
                             <strong><a itemprop="name" t-att-href="keep('/shop/product/%s' % slug(product), page=None if add_more else (pager['page']['num'] if pager['page']['num']>1 else None))" t-field="product.name"/>
                             </strong>
                         </h3>
-                        <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price" t-if="product.product_variant_ids">
+                        <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price" t-if="product.product_variant_ids" groups="base.group_user,base.group_portal">
                             <b>
                                 <t t-if="True">
                                     <!-- compatibility 12.0 -->
