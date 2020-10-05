@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
+import logging
 from odoo import models, fields, api
 
+_logger = logging.getLogger(__name__)
 
 class ProductBrand(models.Model):
     _name = 'product.brand'
@@ -38,9 +40,8 @@ class ProductTemplate(models.Model):
         string='Brand',
         help='Select a brand for this product'
     )
-
     def _get_combination_info(self, combination=False, product_id=False, add_qty=1, pricelist=False, parent_combination=False, only_template=False):
-        # _logger.info('Launched!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n')
+        # _logger.info('Launched!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n' + str(parent_combination))
         self.ensure_one()
         # get the name before the change of context to benefit from prefetch
         display_name = self.name
@@ -99,9 +100,11 @@ class ProductTemplate(models.Model):
                     'product_id': False,
                     'product_template_id': product_template.id,
                     'display_name': "",
+                    'virtual_available': "",
                     'price': False,
                     'list_price': False,
                     'has_discounted_price': False,
+                    'custom_message': "",
                 }
         if pricelist and pricelist.currency_id != product_template.currency_id:
             list_price = product_template.currency_id._convert(
@@ -115,8 +118,10 @@ class ProductTemplate(models.Model):
         return {
             'product_id': product.id,
             'product_template_id': product_template.id,
+            'virtual_available': product.virtual_available,
             'display_name': display_name,
             'price': price,
             'list_price': list_price,
             'has_discounted_price': has_discounted_price,
+            'custom_message': product_template.custom_message,
         }
