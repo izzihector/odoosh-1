@@ -84,9 +84,9 @@ odoo.define('cap_product_page.ProductConfiguratorMixin', function (require) {
         }
     //     alert("TEST")
         xml_load.then(function () {
-            $('.oe_website_sale')
-                .find('.availability_message_' + combination.product_template)
-                .remove();
+            // $('.oe_website_sale')
+            //     .find('.availability_message_' + combination.product_template)
+            //     .remove();
     
             var $message = $(QWeb.render(
                 'website_sale_stock.product_availability',
