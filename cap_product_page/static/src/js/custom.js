@@ -76,7 +76,7 @@ odoo.define('cap_product_page.ProductConfiguratorMixin', function (require) {
             element2.innerHTML = "";
         } else {
                 
-            var ttt = "Approx. 16-20 Weeks"
+            var ttt = combination.custom_message
             var element = document.getElementById("test");
             var element2 = document.getElementById("test2");
             element.innerHTML = "";
