@@ -118,7 +118,7 @@ class ProductTemplate(models.Model):
         return {
             'product_id': product.id,
             'product_template_id': product_template.id,
-            'virtual_available': product.virtual_available,
+            'virtual_available': product.qty_available,
             'display_name': display_name,
             'price': price,
             'list_price': list_price,
