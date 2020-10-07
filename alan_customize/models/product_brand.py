@@ -123,5 +123,5 @@ class ProductTemplate(models.Model):
             'price': price,
             'list_price': list_price,
             'has_discounted_price': has_discounted_price,
-            'custom_message': product_template.custom_message,
+            'custom_message': product_template.x_studio_availability,
         }
