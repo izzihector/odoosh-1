@@ -115,6 +115,11 @@ class ProductTemplate(models.Model):
         price_without_discount = list_price if pricelist and pricelist.discount_policy == 'without_discount' else price
         has_discounted_price = (pricelist or product_template).currency_id.compare_amounts(price_without_discount, price) == 1
 
+        st = "Approx. 16-20 Weeks"
+        if product_template.x_studio_availability != False:
+            st = str(product_template.x_studio_availability)
+            if product.virtual_available > 0:
+                st += " ( " + str(int(product.virtual_available)) + " available )"
         return {
             'product_id': product.id,
             'product_template_id': product_template.id,
@@ -123,5 +128,5 @@ class ProductTemplate(models.Model):
             'price': price,
             'list_price': list_price,
             'has_discounted_price': has_discounted_price,
-            'custom_message': str(product_template.x_studio_availability) + " ( " + str(int(product.virtual_available)) + " available )",
+            'custom_message': st,
         }
