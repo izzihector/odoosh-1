@@ -116,8 +116,8 @@ class ProductTemplate(models.Model):
         has_discounted_price = (pricelist or product_template).currency_id.compare_amounts(price_without_discount, price) == 1
 
         st = "Approx. 16-20 Weeks"
-        if product_template.x_studio_availability != False:
-            st = str(product_template.x_studio_availability)
+        if product.x_studio_availability != False:
+            st = str(product.x_studio_availability)
             if product.virtual_available > 0:
                 st += " ( " + str(int(product.virtual_available)) + " available )"
         return {
