@@ -118,10 +118,10 @@ class ProductTemplate(models.Model):
         return {
             'product_id': product.id,
             'product_template_id': product_template.id,
-            'virtual_available': product.virtual_available,
+            'virtual_available': product.qty_available,
             'display_name': display_name,
             'price': price,
             'list_price': list_price,
             'has_discounted_price': has_discounted_price,
-            'custom_message': product_template.custom_message,
+            'custom_message': str(product_template.x_studio_availability) + " ( " + str(int(product.virtual_available)) + " available )",
         }
