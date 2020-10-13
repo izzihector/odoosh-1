@@ -17,7 +17,7 @@ class AuthSignupHomeCustom(AuthSignupHome):
     def do_signup(self, qcontext):
         """ Shared helper that creates a res.partner out of a token """
         values = {key: qcontext.get(key) for key in ('login', 'name', 'password', 'phone', 'street', 'street2',
-                    'zip', 'city', 'state_id', 'country_id', 'vat', 'company_name', 'account_type', 'business_type', 'website', 'comments', 'filename')}
+                    'zip', 'city', 'state_id', 'country_id', 'vat', 'company_name', 'account_type', 'business_type', 'x_website', 'comments', 'filename')}
         if qcontext.get('tax_certificate'):
             values.update({'tax_certificate': base64.encodestring(qcontext.get('tax_certificate').read()), 'filename': qcontext.get('tax_certificate').filename})
         if not values:
@@ -34,7 +34,7 @@ class AuthSignupHomeCustom(AuthSignupHome):
     def custom_signup(self, qcontext):
         """ Shared helper that creates a res.partner out of a token """
         values = {key: qcontext.get(key) for key in ('login', 'name', 'password', 'phone', 'street', 'street2',
-                    'zip', 'city', 'state_id', 'country_id', 'vat', 'company_name', 'account_type', 'business_type', 'website', 'comments', 'filename')}
+                    'zip', 'city', 'state_id', 'country_id', 'vat', 'company_name', 'account_type', 'business_type', 'x_website', 'comments', 'filename')}
         if qcontext.get('tax_certificate'):
             values.update({'tax_certificate': base64.encodestring(qcontext.get('tax_certificate').read()), 'filename': qcontext.get('tax_certificate').filename})
         if not values:
