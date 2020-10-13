@@ -96,3 +96,4 @@ class AuthSignupHomeCustom(AuthSignupHome):
         response = request.render('auth_signup.signup', qcontext)
         response.headers['X-Frame-Options'] = 'DENY'
         return response
+
