@@ -68,8 +68,9 @@ odoo.define('cap_product_page.ProductConfiguratorMixin', function (require) {
         if (combination.virtual_available > 0) {
             var str_qty = combination.virtual_available.toString()
                 
-            var t = "In Stock "
-            var tt = t.concat(str_qty)
+            var t = "In Stock"
+            // var tt = t.concat(str_qty)
+            var tt = t
             var element = document.getElementById("test");
             var element2 = document.getElementById("test2");
             element.innerHTML = tt;
