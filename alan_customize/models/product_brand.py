@@ -116,12 +116,66 @@ class ProductTemplate(models.Model):
         has_discounted_price = (pricelist or product_template).currency_id.compare_amounts(price_without_discount, price) == 1
 
         st = "Approx. 16-20 Weeks"
-        if product.x_studio_availability != False:
-            st = str(product.x_studio_availability)
-            if product.virtual_available > 0:
-                st += " ( " + str(int(product.virtual_available)) + " available )"
+        # if product.x_studio_availability != False:
+        #     st = str(product.x_studio_availability)
+        #     if product.virtual_available > 0:
+        #         st += " ( " + str(int(product.virtual_available)) + " available )"
+
+        # Here is where we do our checks on CTR Lots
+        lots = self.env['x_ctr_lots'].search([('x_product_id','=',product.id)])
+        qty = product.qty_available
+        lot_date = False
+        for lot in lots:
+            remaining = lot.x_studio_reserved_qty - lot.x_studio_ctr_reserved_qty
+
+            if remaining > 0:
+                # Compare
+                qty += remaining
+                _logger.warning("Quantity?: " + str(quantity))
+                if qty >= quantity:
+                    lot_date = lot.x_studio_receipt_scheduled_date
+                    break
+        if lot_date:
+            year,month,date = str(lot_date).split('-')
+
+            # Day
+            if int(date) < 11:
+            date = " Early"
+            elif int(date) < 20:
+            date = " Mid"
+            elif int(date) < 32:
+            date = " Late"
+
+            # Month
+            if month == '01':
+            month = "January"
+            elif month == "02":
+            month = "February"
+            elif month == "03":
+            month = "March"
+            elif month == "04":
+            month = "April"
+            elif month == "05":
+            month = "May"
+            elif month == "06":
+            month = "June"
+            elif month == "07":
+            month = "July"
+            elif month == "08":
+            month = "August"
+            elif month == "09":
+            month = "September"
+            elif month == "10":
+            month = "October"
+            elif month == "11":
+            month = "November"
+            elif month == "12":
+            month = "December"
+
+            st = "Estimated Arrival: " + date + " " + month
 
         _logger.warning("Here")
+
         return {
             'product_id': product.id,
             'product_template_id': product_template.id,
