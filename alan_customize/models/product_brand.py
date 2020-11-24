@@ -131,7 +131,8 @@ class ProductTemplate(models.Model):
             if remaining > 0:
                 # Compare
                 qty += remaining
-                _logger.warning("Quantity?: " + str(quantity))
+                _logger.warning("Lot Name: " + str(lot.x_name))
+                _logger.warning("Remaining: " + str(remaining))
                 if qty >= quantity:
                     lot_date = lot.x_studio_receipt_scheduled_date
                     break
