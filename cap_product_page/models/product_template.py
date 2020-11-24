@@ -9,7 +9,7 @@
  class CTRLotNumber(models.Model):
      _inherit = 'x_ctr_lot'
 
-    def name_get(self):
+    def name_search(self):
         _logger.warning('Start')
         res = []
         for lot in self:
