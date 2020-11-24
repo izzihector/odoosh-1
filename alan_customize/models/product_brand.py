@@ -136,6 +136,7 @@ class ProductTemplate(models.Model):
                     lot_date = lot.x_studio_receipt_scheduled_date
                     break
         if lot_date:
+            lot_date = str(lot_date).split(' ')[0]
             year,month,date = str(lot_date).split('-')
 
             # Day
