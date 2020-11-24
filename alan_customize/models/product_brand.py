@@ -120,6 +120,8 @@ class ProductTemplate(models.Model):
             st = str(product.x_studio_availability)
             if product.virtual_available > 0:
                 st += " ( " + str(int(product.virtual_available)) + " available )"
+
+        _logger.warning("Here")
         return {
             'product_id': product.id,
             'product_template_id': product_template.id,
