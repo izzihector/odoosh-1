@@ -1,15 +1,15 @@
 #  -*- coding: utf-8 -*-
 
- import logging
- from odoo import models, fields, api
+import logging
+from odoo import models, fields, api
 
- _logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
- class CTRLotNumber(models.Model):
-     _inherit = 'x_ctr_lot'
+class CTRLotNumber(models.Model):
+    _inherit = 'x_ctr_lot'
 
-    def name_search(self):
+    def name_get(self):
         _logger.warning('Start')
         res = []
         for lot in self:
@@ -19,7 +19,6 @@
             name = str(lot.x_name) + " (" + str(remaining) + " remaining)"
 
             res.append((lot.id, name))
-
 
         return res
 
