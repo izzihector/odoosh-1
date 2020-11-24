@@ -10,6 +10,7 @@
      _inherit = 'x_ctr_lot'
 
     def name_get(self):
+        _logger.warning('Start')
         res = []
         for lot in self:
 
