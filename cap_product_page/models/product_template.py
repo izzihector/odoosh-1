@@ -1,15 +1,33 @@
-# # -*- coding: utf-8 -*-
+#  -*- coding: utf-8 -*-
 
-# import logging
-# from odoo import models, fields, api
+ import logging
+ from odoo import models, fields, api
 
-# _logger = logging.getLogger(__name__)
+ _logger = logging.getLogger(__name__)
+
+
+ class CTRLotNumber(models.Model):
+     _inherit = 'x_ctr_lot'
+
+    def name_get(self):
+        res = []
+        for lot in self:
+
+            remaining = lot.x_studio_reserved_qty - lot.x_studio_ctr_reserved_qty
+
+            name = str(lot.x_name) + " (" + str(remaining) + " remaining)"
+
+            res.append((lot.id, name))
+
+
+        return res
+
 
 # class ProductTemplate(models.Model):
 #     _inherit = 'product.template'
-    
+
 #     test_field = fields.Boolean("TEST",default=True)
-    
+
 #     @api.multi
 #     def _get_combination_info_jb(self, combination=False, product_id=False, add_qty=1, pricelist=False, parent_combination=False, only_template=False):
 #         """ Return info about a given combination.
