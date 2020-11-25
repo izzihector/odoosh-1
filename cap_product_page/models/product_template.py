@@ -6,25 +6,22 @@ from odoo import models, fields, api
 _logger = logging.getLogger(__name__)
 
 
-class Dummy(models.Model):
-    _name = 'x_dummy'
 
+class CTRLotNumber(models.Model):
+    _name= 'x_ctr_lot'
 
-# class CTRLotNumber(models.Model):
-#     _inherit = 'x_ctr_lot'
-#
-#     def name_search(self):
-#         _logger.warning('Start')
-#         res = []
-#         for lot in self:
-#
-#             remaining = lot.x_studio_reserved_qty - lot.x_studio_ctr_reserved_qty
-#
-#             name = str(lot.x_name) + " (" + str(remaining) + " remaining)"
-#
-#             res.append((lot.id, name))
-#
-#         return res
+    def name_search(self):
+        _logger.warning('Start')
+        res = []
+        for lot in self:
+
+            remaining = lot.x_studio_reserved_qty - lot.x_studio_ctr_reserved_qty
+
+            name = str(lot.x_name) + " (" + str(remaining) + " remaining)"
+
+            res.append((lot.id, name))
+
+        return res
 
 
 # class ProductTemplate(models.Model):
