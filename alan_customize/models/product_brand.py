@@ -126,7 +126,7 @@ class ProductTemplate(models.Model):
         qty = product.qty_available
         lot_date = False
         for lot in lots:
-            if lot.x_lot_id:
+            if not lot.x_lot_id:
                             # CTR Lot initial demand - CTR reserved QTY
                 remaining = lot.x_studio_reserved_qty - lot.x_studio_ctr_reserved_qty
 
