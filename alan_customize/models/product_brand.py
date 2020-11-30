@@ -126,17 +126,18 @@ class ProductTemplate(models.Model):
         qty = product.qty_available
         lot_date = False
         for lot in lots:
-                        # CTR Lot initial demand - CTR reserved QTY
-            remaining = lot.x_studio_reserved_qty - lot.x_studio_ctr_reserved_qty
+            if lot.x_lot_id:
+                            # CTR Lot initial demand - CTR reserved QTY
+                remaining = lot.x_studio_reserved_qty - lot.x_studio_ctr_reserved_qty
 
-            if remaining > 0:
-                # Compare
-                qty += remaining
-                _logger.warning("Lot Name: " + str(lot.x_name))
-                _logger.warning("Remaining: " + str(remaining))
-                if qty >= quantity:
-                    lot_date = lot.x_studio_receipt_scheduled_date
-                    break
+                if remaining > 0:
+                    # Compare
+                    qty += remaining
+                    _logger.warning("Lot Name: " + str(lot.x_name))
+                    _logger.warning("Remaining: " + str(remaining))
+                    if qty >= quantity:
+                        lot_date = lot.x_studio_receipt_scheduled_date
+                        break
 
         if lot_date:
             lot_date = str(lot_date).split(' ')[0]
